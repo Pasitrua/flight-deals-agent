@@ -1,18 +1,26 @@
-from dataclasses import dataclass
+import os
 
-ORIGIN = "MOW"
-DESTINATIONS = [
-    # Азия
-    "BKK", "HKT", "KUL", "SIN", "DPS", "DEL", "BOM", "CMB", "HKG",
-    # Ближний Восток
-    "DXB", "AUH", "DOH", "MCT", "AMM", "TLV", "IST",
-]
-
-MAX_PRICE_EUR = 1000
-CURRENCY = "EUR"
-MAX_STOPS = 1
+MAX_PRICE_RUB = 20_000
 MIN_SEATS = 3
-TRAVEL_CLASS = "ECONOMY"
-DATE_SCAN_DAYS = 180
-DATE_STEP_DAYS = 7
-TOP_RESULTS = 10
+MAX_STOPS = 1
+MIN_TRIP_DAYS = 3
+MAX_TRIP_DAYS = 5
+ORIGIN = "MOW"
+CURRENCY = "rub"
+
+DESTINATIONS = {
+    "TAS":"Ташкент","DYU":"Душанбе","EVN":"Ереван","BAK":"Баку",
+    "TBS":"Тбилиси","ALA":"Алматы","NQZ":"Астана","FRU":"Бишкек",
+    "DXB":"Дубай","AUH":"Абу-Даби","DOH":"Доха","MCT":"Маскат",
+    "IST":"Стамбул","IKA":"Тегеран","DEL":"Дели","BOM":"Мумбаи",
+    "GOI":"Гоа","BKK":"Бангкок","HKT":"Пхукет","KUL":"Куала-Лумпур",
+    "SGN":"Хошимин","HAN":"Ханой","PEK":"Пекин","PVG":"Шанхай",
+    "HKG":"Гонконг","TYO":"Токио","SEL":"Сеул","DPS":"Бали",
+    "CMB":"Коломбо","MLE":"Мале","KTM":"Катманду","MNL":"Манила",
+    "JED":"Джидда","RUH":"Эр-Рияд","AMM":"Амман","TLV":"Тель-Авив",
+    "CAI":"Каир"
+}
+
+AVIASALES_API_TOKEN = os.environ["AVIASALES_API_TOKEN"]
+TELEGRAM_BOT_TOKEN = os.environ["TELEGRAM_BOT_TOKEN"]
+TELEGRAM_CHAT_ID = os.environ["TELEGRAM_CHAT_ID"]
